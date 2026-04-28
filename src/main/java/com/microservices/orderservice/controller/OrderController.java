@@ -17,8 +17,9 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<String> createOrder(
-            @RequestParam(required = false) String failure
+            @RequestParam(required = false) String failure,
+            @RequestParam(required = false, defaultValue = "100") int duration
     ) {
-        return ResponseEntity.ok(orderService.createOrder(failure));
+        return ResponseEntity.ok(orderService.createOrder(failure, duration));
     }
 }
